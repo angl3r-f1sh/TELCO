@@ -1,0 +1,38 @@
+﻿@model TELCO.Models.BD.GENEROS
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 style="font-weight: 600">Catálogo de Géneros</h2>
+
+<h3>¿Estas seguro de eliminar este género?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cod_genero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cod_genero)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.txt_genero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.txt_genero)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+    @Html.ActionLink("Volver al listado", "Index")
+</div>
+    }
+</div>

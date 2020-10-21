@@ -1,0 +1,41 @@
+﻿@model IEnumerable<TELCO.Models.BD.PLATAFORMAS>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="font-weight: 600">Catálogo de Plataformas</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+    <button onclick="location.href='@Url.Action("Create", "PLATAFORMAS")';return false;" id="pbutton" type="button" class="btn btn-primary" )>Agregar nuevo</button>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cod_plataforma)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.txt_plataforma)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.cod_plataforma)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.txt_plataforma)
+    </td>
+    <td>
+        <a class="btn" data-toggle="tooltip" data-placement="top" title="Editar" href='@Url.Action("Edit", "PLATAFORMAS", new { id = item.cod_plataforma })'><img src="~/Images/DIM/edit2.png" style="width:40px;height:40px" /></a>
+        <a class="btn" data-toggle="tooltip" data-placement="top" title="Eliminar" href='@Url.Action("Delete", "PLATAFORMAS", new { id = item.cod_plataforma })'><img src="~/Images/DIM/del3.png" style="width:40px;height:40px" /></a>
+    </td>
+</tr>
+}
+
+</table>

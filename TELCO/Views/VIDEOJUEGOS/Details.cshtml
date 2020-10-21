@@ -1,0 +1,59 @@
+﻿@model TELCO.Models.BD.VIDEOJUEGOS
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>VIDEOJUEGOS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GENEROS.txt_genero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GENEROS.txt_genero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PLATAFORMAS.txt_plataforma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PLATAFORMAS.txt_plataforma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.txt_nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.txt_nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.txt_descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.txt_descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fec_lanzamiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fec_lanzamiento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.cod_videojuego }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

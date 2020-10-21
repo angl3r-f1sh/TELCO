@@ -1,0 +1,49 @@
+﻿@model TELCO.Models.BD.PLATAFORMAS
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="font-weight: 600">Catálogo de Plataformas</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4 style="font-weight: 600">Editar plataforma</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.cod_plataforma)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.cod_plataforma, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.cod_plataforma, new { htmlAttributes = new { @class = "form-control", @disabled="disabled" } })
+            @Html.ValidationMessageFor(model => model.cod_plataforma, "", new { @class = "text-danger" })
+        </div>
+        <br><br>
+        @Html.LabelFor(model => model.txt_plataforma, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.txt_plataforma, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.txt_plataforma, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar cambios" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Volver al listado", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
